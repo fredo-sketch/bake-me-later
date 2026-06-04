@@ -76,7 +76,7 @@ function Shop() {
               {/* Card Our Mission */}
               <div className="bg-gradient-to-r from-[#FAE8FF]/50 to-[#E0F2FE]/40 p-5 rounded-2xl border border-purple-100/50 shadow-sm">
                 <h4 className="font-playfair font-black text-lg text-[#4A2840] mb-1">Our Mission</h4>
-                <p className="text-xs text-[#6B5164] font-medium leading-relaxed">Menghadirkan varian cookies yang tidak hanya manis, tetapi juga punya karakter rasa yang unik dan berkela</p>
+                <p className="text-xs text-[#6B5164] font-medium leading-relaxed">Menghadirkan varian cookies yang tidak hanya manis, tetapi juga punya karakter rasa yang unik dan berkelas.</p>
               </div>
 
               {/* Card Our Vision */}
