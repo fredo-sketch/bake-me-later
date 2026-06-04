@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Lingkaran Background - Warna Krem Kue Lembut -->
+  <circle cx="256" cy="256" r="240" fill="#FFF9F0" />
+  
+  <!-- Lingkaran Kedua - Warna Amber Hangat -->
+  <circle cx="256" cy="256" r="220" fill="#FDE68A" opacity="0.4" />
+  
+  <!-- Garis Pinggiran Putus-putus Estetik (Ala Cookie Crust) -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#D97706" stroke-width="10" stroke-dasharray="20 15" />
+  
+  <!-- Huruf B Serif Elegan Font Toko Kue (Warna Dark Chocolate) -->
+  <text x="51%" y="55%" 
+        dominant-baseline="middle" 
+        text-anchor="middle" 
+        font-family="'Playfair Display', 'Georgia', serif" 
+        font-size="290" 
+        font-weight="900" 
+        fill="#4A3219">B</text>
+        
+  <!-- Titik Manis Remahan Kue Kecil di Samping B -->
+  <circle cx="390" cy="360" r="12" fill="#D97706" />
+</svg>

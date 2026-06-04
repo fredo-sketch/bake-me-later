@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  /* Animasi Baris Atas (Ke Kiri) */
+  --animate-marquee: marquee 25s linear infinite;
+  /* Animasi Baris Bawah (Ke Kanan) */
+  --animate-marquee-reverse: marquee-reverse 25s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+/* 3. Custom Styling Global Kamu */
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #fffdf9; /* Warna krem super soft ala toko kue */
+}
+
+h1,
+h2,
+h3,
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
