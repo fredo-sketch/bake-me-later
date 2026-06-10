@@ -231,7 +231,7 @@ export default function Admin() {
 
           <div className="flex gap-2 pt-2">
             <button type="submit" className={`w-full py-3 text-white font-bold rounded-lg ${isEditMode ? "bg-blue-600 hover:bg-blue-700" : "bg-amber-700 hover:bg-amber-800"}`}>
-              {isEditMode ? "Simpan Perubahan Kue 💾" : "Masukkan ke Etalase 店"}
+              {isEditMode ? "Simpan Perubahan Kue 💾" : "Masukkan ke Etalase"}
             </button>
             {isEditMode && (
               <button type="button" onClick={handleCancelEdit} className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold px-4 rounded-lg text-sm">
