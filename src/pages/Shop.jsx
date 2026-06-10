@@ -95,15 +95,15 @@ function Shop() {
       </div>
 
       {/* Grid Produk */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
         {products.map((item) => {
           const currentCartItem = cartItems.find((cartItem) => cartItem.id === item.id);
           const currentQuantity = currentCartItem ? currentCartItem.quantity : 0;
 
           return (
-            <div key={item.id} className="bg-white p-6 rounded-[2rem] shadow-sm hover:shadow-xl transition-all border border-amber-50 group flex flex-col h-full">
-              {/* Membaca gambar berdasarkan image_url database (SUDAH DIUBAH KE RAILWAY) */}
-              <div className="bg-[#FDE68A]/20 w-full h-56 rounded-[1.5rem] mb-6 flex items-center justify-center overflow-hidden">
+            <div key={item.id} className="bg-white rounded-[1.75rem] shadow-sm hover:shadow-xl transition-all border border-amber-50 group flex flex-col overflow-hidden">
+              {/* Gambar produk — full width, no padding atas */}
+              <div className="w-full h-64 overflow-hidden bg-[#FDE68A]/20">
                 <img
                   src={item.image_url && item.image_url.startsWith("http") ? item.image_url : `https://bakemelater-backend-production.up.railway.app/images/${item.image_url || "default.png"}`}
                   alt={item.name}
@@ -111,24 +111,23 @@ function Shop() {
                 />
               </div>
 
-              <div className="flex-grow">
-                <h3 className="font-playfair font-bold text-2xl text-[#4A3219] mb-1">{item.name}</h3>
+              {/* Info & stepper */}
+              <div className="flex flex-col flex-grow p-4">
+                <div className="flex-grow mb-3">
+                  <h3 className="font-playfair font-bold text-xl text-[#4A3219] mb-0.5">{item.name}</h3>
+                  <p className="text-[#D97706] font-extrabold text-lg">Rp {item.price.toLocaleString("id-ID")}</p>
+                </div>
 
-                {/* Format angka harga murni dari database menjadi Rupiah titik cantik */}
-                <p className="text-[#D97706] font-extrabold text-xl mb-4">Rp {item.price.toLocaleString("id-ID")}</p>
-              </div>
-
-              <div className="flex justify-center items-center mt-auto pt-4 border-t border-amber-50">
-                <div className="flex items-center gap-6 bg-amber-50 px-4 py-2 rounded-full border border-amber-100 w-full justify-between">
-                  <button type="button" onClick={() => handleMinus(item)} className="text-amber-800 hover:text-[#D97706] transition-colors p-1">
-                    <Minus size={18} />
-                  </button>
-
-                  <span className="font-bold text-[#4A3219] text-lg text-center">{currentQuantity}</span>
-
-                  <button type="button" onClick={() => handleAdd(item)} className="text-amber-800 hover:text-[#D97706] transition-colors p-1">
-                    <Plus size={18} />
-                  </button>
+                <div className="pt-3 border-t border-amber-50">
+                  <div className="flex items-center gap-4 bg-amber-50 px-3 py-2 rounded-full border border-amber-100 justify-between">
+                    <button type="button" onClick={() => handleMinus(item)} className="text-amber-800 hover:text-[#D97706] transition-colors p-1">
+                      <Minus size={16} />
+                    </button>
+                    <span className="font-bold text-[#4A3219] text-base">{currentQuantity}</span>
+                    <button type="button" onClick={() => handleAdd(item)} className="text-amber-800 hover:text-[#D97706] transition-colors p-1">
+                      <Plus size={16} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
