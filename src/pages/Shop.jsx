@@ -9,13 +9,13 @@ import heroKueBesar from "../assets/images/newvarian.jpeg";
 import fotoProfilOwner from "../assets/images/owner.jpeg";
 
 function Shop() {
-  // BARIS SALAH 1 (DIPERBAIKI): Sekarang products mengambil data kosong dulu, nanti diisi dari database
+  // Sekarang products mengambil data kosong dulu, nanti diisi dari database
   const [products, setProducts] = useState([]);
 
-  // BARIS TAMBAHAN: Mengambil data dari server backend via Axios saat halaman dibuka
+  // Mengambil data dari server backend via Axios saat halaman dibuka (SUDAH DIUBAH KE RAILWAY)
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://bakemelater-backend-production.up.railway.app/api/products")
       .then((response) => {
         setProducts(response.data); // Memasukkan data dari MySQL ke state
       })
@@ -102,10 +102,10 @@ function Shop() {
 
           return (
             <div key={item.id} className="bg-white p-6 rounded-[2rem] shadow-sm hover:shadow-xl transition-all border border-amber-50 group flex flex-col h-full">
-              {/* BARIS SALAH 2 (DIPERBAIKI): Membaca gambar dari folder public/images/ berdasarkan image_url database */}
+              {/* Membaca gambar berdasarkan image_url database (SUDAH DIUBAH KE RAILWAY) */}
               <div className="bg-[#FDE68A]/20 w-full h-56 rounded-[1.5rem] mb-6 flex items-center justify-center overflow-hidden">
                 <img
-                  src={item.image_url && item.image_url.startsWith("http") ? item.image_url : `http://localhost:5000/images/${item.image_url || "default.png"}`}
+                  src={item.image_url && item.image_url.startsWith("http") ? item.image_url : `https://bakemelater-backend-production.up.railway.app/images/${item.image_url || "default.png"}`}
                   alt={item.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -114,7 +114,7 @@ function Shop() {
               <div className="flex-grow">
                 <h3 className="font-playfair font-bold text-2xl text-[#4A3219] mb-1">{item.name}</h3>
 
-                {/* BARIS SALAH 3 (DIPERBAIKI): Format angka harga murni dari database menjadi Rupiah titik cantik */}
+                {/* Format angka harga murni dari database menjadi Rupiah titik cantik */}
                 <p className="text-[#D97706] font-extrabold text-xl mb-4">Rp {item.price.toLocaleString("id-ID")}</p>
               </div>
 

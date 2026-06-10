@@ -20,10 +20,10 @@ export default function Admin() {
   // --- STATE DAFTAR KUE ---
   const [products, setProducts] = useState([]);
 
-  // Fungsi ambil data dari backend
+  // Fungsi ambil data dari backend (Sudah ditambahkan https://)
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/products");
+      const response = await axios.get("https://bakemelater-backend-production.up.railway.app/api/products");
       setProducts(response.data);
     } catch (error) {
       console.error("Gagal mengambil data produk:", error);
@@ -43,11 +43,11 @@ export default function Admin() {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
-  // --- FUNGSI LOGIN: Nembak ke Database asli & simpan token ---
+  // --- FUNGSI LOGIN: Nembak ke Railway asli & simpan token ---
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post("https://bakemelater-backend-production.up.railway.app/api/auth/login", {
         username: loginData.username,
         password: loginData.password,
       });
@@ -122,7 +122,7 @@ export default function Admin() {
 
     try {
       if (isEditMode) {
-        const response = await axios.put(`http://localhost:5000/api/products/${editProductId}`, dataToSend, {
+        const response = await axios.put(`https://bakemelater-backend-production.up.railway.app/api/products/${editProductId}`, dataToSend, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`, // Melampirkan Token Keamanan
@@ -134,7 +134,7 @@ export default function Admin() {
           alert("Silakan pilih gambar kue terlebih dahulu, cuy!");
           return;
         }
-        const response = await axios.post("http://localhost:5000/api/products", dataToSend, {
+        const response = await axios.post("https://bakemelater-backend-production.up.railway.app/api/products", dataToSend, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`, // Melampirkan Token Keamanan
@@ -155,7 +155,7 @@ export default function Admin() {
     if (window.confirm(`Beneran mau menghapus kue "${productName}" dari etalase?`)) {
       const token = localStorage.getItem("adminToken");
       try {
-        const response = await axios.delete(`http://localhost:5000/api/products/${id}`, {
+        const response = await axios.delete(`https://bakemelater-backend-production.up.railway.app/api/products/${id}`, {
           headers: { Authorization: `Bearer ${token}` }, // Melampirkan Token Keamanan
         });
         alert(response.data.message);
@@ -250,7 +250,11 @@ export default function Admin() {
             <div key={product.id} className="flex items-center justify-between p-3 border border-gray-100 rounded-xl hover:bg-amber-50/50 transition">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-                  <img src={product.image_url?.startsWith("http") ? product.image_url : `http://localhost:5000/images/${product.image_url || "default.png"}`} alt={product.name} className="w-full h-full object-cover" />
+                  <img
+                    src={product.image_url?.startsWith("http") ? product.image_url : `https://bakemelater-backend-production.up.railway.app/images/${product.image_url || "default.png"}`}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 text-sm">{product.name}</h4>
