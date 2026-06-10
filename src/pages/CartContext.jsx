@@ -30,9 +30,19 @@ export function CartProvider({ children }) {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
+  // PERBAIKAN: Fungsi hitung total harga yang mendukung tipe data Angka (Database) maupun Teks
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => {
-      const numericPrice = parseInt(item.price.replace(/[^\d]/g, ""), 10) || 0;
+      let numericPrice = 0;
+
+      if (typeof item.price === "number") {
+        // Jika dari database sudah berupa angka murni (seperti saat ini)
+        numericPrice = item.price;
+      } else if (item.price) {
+        // Jika bentuknya string (jaga-jaga kalau ada sisa mock data lama)
+        numericPrice = parseInt(String(item.price).replace(/[^\d]/g, ""), 10) || 0;
+      }
+
       return total + numericPrice * item.quantity;
     }, 0);
   };
