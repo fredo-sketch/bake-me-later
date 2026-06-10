@@ -99,7 +99,7 @@ function Shop() {
 
           return (
             <div key={item.id} className="bg-white rounded-[1.75rem] shadow-sm hover:shadow-xl transition-all border border-amber-50 group flex flex-col overflow-hidden">
-              {/* Gambar produk — full width, no padding atas */}
+              {/* Gambar produk */}
               <div className="w-full h-64 overflow-hidden bg-[#FDE68A]/20">
                 <img
                   src={item.image_url && item.image_url.startsWith("http") ? item.image_url : `https://bakemelater-backend-production.up.railway.app/images/${item.image_url || "default.png"}`}
@@ -114,8 +114,8 @@ function Shop() {
                   <h3 className="font-playfair font-bold text-xl text-[#4A3219] mb-0.5">{item.name}</h3>
                   <p className="text-[#D97706] font-extrabold text-lg mb-2">Rp {item.price.toLocaleString("id-ID")}</p>
 
-                  {/* INI BAGIAN DESKRIPSI YANG BARU DITAMBAHKAN */}
-                  <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">{item.description || "Kue manis nan lezat yang dipanggang dengan cinta."}</p>
+                  {/* PERBAIKAN: line-clamp-2 dihapus agar tulisan tidak mentok/terpotong */}
+                  <p className="text-sm text-gray-500 leading-relaxed break-words whitespace-pre-line">{item.description || "Kue manis nan lezat yang dipanggang dengan cinta."}</p>
                 </div>
 
                 <div className="pt-3 border-t border-amber-50">
