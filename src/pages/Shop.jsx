@@ -2,22 +2,19 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Plus, Minus, ArrowRight, Heart } from "lucide-react";
 import { useCart } from "./CartContext";
-import axios from "axios"; // Axios sudah aktif
+import axios from "axios";
 
-// Banner image tetap dari assets lokal karena tidak disimpan di database
 import heroKueBesar from "../assets/images/newvarian.jpeg";
 import fotoProfilOwner from "../assets/images/owner.jpeg";
 
 function Shop() {
-  // Sekarang products mengambil data kosong dulu, nanti diisi dari database
   const [products, setProducts] = useState([]);
 
-  // Mengambil data dari server backend via Axios saat halaman dibuka (SUDAH DIUBAH KE RAILWAY)
   useEffect(() => {
     axios
       .get("https://bakemelater-backend-production.up.railway.app/api/products")
       .then((response) => {
-        setProducts(response.data); // Memasukkan data dari MySQL ke state
+        setProducts(response.data);
       })
       .catch((error) => {
         console.error("Gagal mengambil data dari backend:", error);
@@ -41,7 +38,7 @@ function Shop() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
-      {/* SECTION 1: HERO BANNER (Tetap Aman) */}
+      {/* SECTION 1: HERO BANNER */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24 bg-gradient-to-br from-[#FFFDF9] to-[#FFF9F0] p-6 md:p-10 rounded-[3rem] border border-amber-100/60 relative overflow-hidden">
         <div className="w-full flex flex-col justify-between h-full">
           <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-md mb-6 bg-amber-50/50">
@@ -115,7 +112,10 @@ function Shop() {
               <div className="flex flex-col flex-grow p-4">
                 <div className="flex-grow mb-3">
                   <h3 className="font-playfair font-bold text-xl text-[#4A3219] mb-0.5">{item.name}</h3>
-                  <p className="text-[#D97706] font-extrabold text-lg">Rp {item.price.toLocaleString("id-ID")}</p>
+                  <p className="text-[#D97706] font-extrabold text-lg mb-2">Rp {item.price.toLocaleString("id-ID")}</p>
+
+                  {/* INI BAGIAN DESKRIPSI YANG BARU DITAMBAHKAN */}
+                  <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">{item.description || "Kue manis nan lezat yang dipanggang dengan cinta."}</p>
                 </div>
 
                 <div className="pt-3 border-t border-amber-50">
