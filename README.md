@@ -1,16 +1,24 @@
-# React + Vite
+# BakeMeLater — Artisan Cookie E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BakeMeLater adalah website e-commerce untuk penjualan kue artisan (artisan cookies), menyediakan pengalaman belanja online yang bersih dan modern bagi pelanggan.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
+- **Frontend:** React.js, Tailwind CSS
+- **Deployment:** Vercel
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Fitur
+- Katalog produk kue artisan dengan tampilan responsif
+- Alur belanja (browsing, keranjang, checkout)
+- Sistem autentikasi pengguna (login/register)
+- Terintegrasi dengan backend REST API (lihat repo [bakemelater-backend](https://github.com/fredo-sketch/bakemelater-backend))
 
-## React Compiler
+## 🎯 Tujuan Project
+Dibangun sebagai proyek full-stack untuk melatih pengembangan aplikasi e-commerce end-to-end, mulai dari desain antarmuka, integrasi API, hingga proses deployment.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Cara Menjalankan
+1. Clone repository ini
+2. Install dependencies: `npm install`
+3. Jalankan project: `npm run dev`
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔗 Repo Terkait
+- Backend: [bakemelater-backend](https://github.com/fredo-sketch/bakemelater-backend)
